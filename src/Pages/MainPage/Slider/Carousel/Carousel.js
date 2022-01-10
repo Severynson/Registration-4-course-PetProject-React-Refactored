@@ -16,15 +16,14 @@ const Carousel = ({children}) => {
     const [offset, setOffset] = useState(0);
 
     const handleLeftArrowClick = () => {
-        console.log('<-- slide <--')
         setOffset((currentOffset) => {
             const newOffset = currentOffset + pageWidth
             console.log(newOffset)
             return Math.min(newOffset, 0);
         })
     }
+    
     const handleRightArrowClick = () => {
-        console.log('--> slide -->')
         setOffset((currentOffset) => {
             const newOffset = currentOffset - pageWidth
             const maxOffset = -(pageWidth * (pages.length - 1))

@@ -1,0 +1,7 @@
+.footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
