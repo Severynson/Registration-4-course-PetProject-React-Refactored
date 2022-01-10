@@ -1,0 +1,52 @@
+.main-container {
+    margin: 0 auto 0 auto;
+    height: 350px;
+    width: 980px;
+    display: flex;
+    align-items: center;
+    transform: translateX(-20px);
+    border-radius: 55px;
+}
+
+.window {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+    border-radius: 30px;
+    background-color: #fff;
+    margin-top: 100px;
+}
+
+.all-pages-container {
+    height: 100%;
+    display: flex;
+    transition: all 0.9s;
+}
+
+.arrow {
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+}
+
+.svgIconLeft, .svgIconRight {
+    height: 40px;
+    width: 40px;
+    background-color: darkslateblue;
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    transition: all 0.5s;
+    z-index: 10;
+}
+
+.svgIconLeft {
+    transform: translate(50%, 50px);
+}
+
+.svgIconRight {
+    transform: translate(-50%, 50px);
+}
+
+
