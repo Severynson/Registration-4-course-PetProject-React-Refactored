@@ -2,8 +2,11 @@ import classes from "./FirstStep.module.css";
 import Button from "../../../UI/Button";
 import { useEffect, useState } from "react";
 import { userActions } from "../../../store/index";
+import { useDispatch } from "react-redux";
 
 const FirstStep = (props) => {
+  const dispatch = useDispatch();
+
   const [username, setUsername] = useState("");
   const [usernameWasTouched, setUsernameWasTouched] = useState(false);
   const [usernameError, setUsernameError] = useState(false);
@@ -75,10 +78,10 @@ const FirstStep = (props) => {
     }
     console.log("Account was created!");
     props.onSubmitFirstFormHandler();
-    userActions.addUser({
+    dispatch(userActions.addUser({
       username,
       password,
-    });
+    }));
   };
 
   return (

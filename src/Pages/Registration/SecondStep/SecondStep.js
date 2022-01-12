@@ -11,7 +11,7 @@ const SecondStep = (props) => {
         <div className={classes["add-picture-div"]}>
           <img src={galleryIcon} className={classes["gallery-icon"]} alt="gallery" />
             <label>Avatar-picture:</label>
-          <input className={classes["img-input"]} type="file" {...register('userPicture')} />
+          <input className={classes["img-input"]} type="file" {...register('picture')} />
         </div>
           <label>Name:</label>
           <input className={classes["text-input"]} {...register('name')} />
@@ -20,7 +20,7 @@ const SecondStep = (props) => {
           <label>Instagram or some social media:</label>
           <input className={classes["text-input"]} {...register('instagram')} />
           <label>Tell about yourself and write youre motivation to learn on course:</label>
-          <textarea className={classes["text-input"]} {...register('textarea')} />
+          <textarea className={classes["text-input"]} {...register('aboutUser')} />
           <Button text="Submit" />
         </form>
       )

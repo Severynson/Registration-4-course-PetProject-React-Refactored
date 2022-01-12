@@ -23,7 +23,7 @@ const userSlice = createSlice({
           state.picture = action.payload.picture;
           state.instagram = action.payload.instagram;
           state.gmail = action.payload.gmail;
-          state.textarea = action.payload.textarea;
+          state.aboutUser = action.payload.aboutUser;
       },
       logout(state) {
           state = initialState;
