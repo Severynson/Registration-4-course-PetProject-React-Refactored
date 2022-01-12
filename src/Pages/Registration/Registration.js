@@ -5,10 +5,12 @@ import FirstStep from "./FirstStep/FirstStep";
 import SecondStep from "./SecondStep/SecondStep";
 import AfterRegMessage from "./AfterRegMessage/AfterRegMessage";
 import { Redirect } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { userActions } from "../../store/index";
 
 const Registration = () => {
-  let user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
   const [submitFirstStep, setSubmitFirstStep] = useState(false);
   const [submitSecondStep, setSubmitSecondStep] = useState(false);
   const [accountCreated, setAccountCreated] = useState(false);
@@ -21,6 +23,7 @@ const Registration = () => {
     setSubmitSecondStep(true);
     console.log(`Adding a user: ${user}`);
     addNewUser(user);
+    dispatch(userActions.clearData());
     setTimeout(() => {
       setAccountCreated(true);
     }, 5000);

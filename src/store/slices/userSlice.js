@@ -28,6 +28,9 @@ const userSlice = createSlice({
       logout(state) {
           state = initialState;
       },
+      clearData(state) {
+          state= initialState;
+      }
   },
 });
 
