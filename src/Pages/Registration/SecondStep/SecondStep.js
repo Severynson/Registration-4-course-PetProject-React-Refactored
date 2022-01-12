@@ -6,11 +6,10 @@ import Button from '../../../UI/Button';
 
 const SecondStep = (props) => {
   const { register, handleSubmit } = useForm();
-
     return (
         <form onSubmit={handleSubmit(props.onSubmitSecondFormHandler)} className={classes["second-form"]}>
         <div className={classes["add-picture-div"]}>
-          <img src={galleryIcon} className={classes["gallery-icon"]} />
+          <img src={galleryIcon} className={classes["gallery-icon"]} alt="gallery" />
             <label>Avatar-picture:</label>
           <input className={classes["img-input"]} type="file" {...register('userPicture')} />
         </div>
