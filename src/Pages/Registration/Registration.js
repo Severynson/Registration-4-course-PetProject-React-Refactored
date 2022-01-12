@@ -6,19 +6,13 @@ import SecondStep from "./SecondStep/SecondStep";
   let userData = {};
 
 const Registration = (props) => {
-  const [submitFirstForm, setSubmitFirstForm] = useState(false);
-  const [submitSecondForm, setSubmitSecondForm] = useState(false);
+  const [submitFirstStep, setSubmitFirstStep] = useState(false);
+  const [submitSecondStep, setSubmitSecondStep] = useState(false);
   const [accountCreated, setAccountCreated] = useState(false);
 
 
-  const onSubmitFirstFormHandler = (props) => {
-    console.log(props.username);
-    setSubmitFirstForm(true);
-    return (userData = {
-      username: props.username,
-      password: props.password,
-      passwordAgain: props.passwordAgain,
-    });
+  const onSubmitFirstFormHandler = () => {
+    setSubmitFirstStep(true);
   };
 
   const onSubmitSecondFormHandler = (data) => {
@@ -30,7 +24,7 @@ const Registration = (props) => {
     userData.textarea = data.textarea;
     delete userData.passwordAgain;
     console.log(userData)
-    setSubmitSecondForm(true);
+    setSubmitSecondStep(true);
     addNewUser(userData);
     setAccountCreated(true);
     setTimeout(() => {
@@ -73,7 +67,8 @@ const Registration = (props) => {
 
   return (
     <div className={classes["registration-form-div"]}>
-        <FirstStep onSubmitFirstFormHandler={onSubmitFirstFormHandler} />
+        {!submitFirstStep && <FirstStep onSubmitFirstFormHandler={onSubmitFirstFormHandler} />}
+        {submitFirstStep && !submitSecondStep && <SecondStep />}
     </div>
   );
 };

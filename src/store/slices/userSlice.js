@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const userSlice = createSlice({
-  name: userSlice,
+  name: 'user',
   initialState,
   reducers: {
       addUser(state, action) {
@@ -19,7 +19,7 @@ const userSlice = createSlice({
           state.password = action.payload.password;
       },
       addUserInfo(state, action) {
-          state.name = action.payload.name,
+          state.name = action.payload.name;
           state.picture = action.payload.picture;
           state.instagram = action.payload.instagram;
           state.gmail = action.payload.gmail;
@@ -30,3 +30,5 @@ const userSlice = createSlice({
       },
   },
 });
+
+export default userSlice;

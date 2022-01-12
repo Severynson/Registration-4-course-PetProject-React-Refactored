@@ -1,6 +1,7 @@
 import classes from "./FirstStep.module.css";
 import Button from "../../../UI/Button";
 import { useEffect, useState } from "react";
+import { userActions } from "../../../store/index";
 
 const FirstStep = (props) => {
   const [username, setUsername] = useState("");
@@ -73,49 +74,49 @@ const FirstStep = (props) => {
       return;
     }
     console.log("Account was created!");
-    props.onSubmitFirstFormHandler({
-      username: username,
-      password: password,
-      passwordAgain: passwordAgain,
+    props.onSubmitFirstFormHandler();
+    userActions.addUser({
+      username,
+      password,
     });
   };
 
   return (
-    <form className={classes["first-form"]} onSubmit={onSubmitHandler}>
-      <label>Username:</label>
-      <input
-        onChange={usernameInputHandler}
-        onBlur={() => setUsernameWasTouched(true)}
-      ></input>
-      {usernameError && (
-        <p className={classes["error-text"]}>Username is too short!</p>
-      )}
-      <label>Password:</label>
-      <input
-        onChange={passwordInputHandler}
-        onBlur={() => setPasswordWasTouched(true)}
-      ></input>
-      {passwordError && (
-        <p className={classes["error-text"]}>
-          Password is too short or doesn't includes any number!
-        </p>
-      )}
-      <label>Password again:</label>
-      <input
-        onChange={passwordAgainInputHandler}
-        onBlur={() => setPasswordAgainWasTouched(true)}
-      ></input>
-      {passwordAgainError && (
-        <p className={classes["error-text"]}>Passwords are not matching!</p>
-      )}
-      {/* <button type="submit">Create account</button> */}
-      <Button text="Create account" />
-      {formConfirmedEmpty && (
-        <p className={classes["error-text"]}>
-          Form can't be submited empty or with mistakes!
-        </p>
-      )}
-    </form>
+      <form className={classes["first-form"]} onSubmit={onSubmitHandler}>
+        <label>Username:</label>
+        <input
+          onChange={usernameInputHandler}
+          onBlur={() => setUsernameWasTouched(true)}
+        ></input>
+        {usernameError && (
+          <p className={classes["error-text"]}>Username is too short!</p>
+        )}
+        <label>Password:</label>
+        <input
+          onChange={passwordInputHandler}
+          onBlur={() => setPasswordWasTouched(true)}
+        ></input>
+        {passwordError && (
+          <p className={classes["error-text"]}>
+            Password is too short or doesn't includes any number!
+          </p>
+        )}
+        <label>Password again:</label>
+        <input
+          onChange={passwordAgainInputHandler}
+          onBlur={() => setPasswordAgainWasTouched(true)}
+        ></input>
+        {passwordAgainError && (
+          <p className={classes["error-text"]}>Passwords are not matching!</p>
+        )}
+        {/* <button type="submit">Create account</button> */}
+        <Button text="Create account" />
+        {formConfirmedEmpty && (
+          <p className={classes["error-text"]}>
+            Form can't be submited empty or with mistakes!
+          </p>
+        )}
+      </form>
   );
 };
 

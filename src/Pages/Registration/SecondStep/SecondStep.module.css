@@ -1,0 +1,32 @@
+.second-form {
+    height: 550px;
+    width: 900px;
+    display: grid;
+    background-color: #dee2e6;
+    padding: 15px;
+    gap: 5px;
+    border-radius: 30px;
+    
+    margin: 0 auto;
+    margin-top: 2%;
+  }
+
+  .text-input {
+    border-radius: 10px;
+    border: 2px solid silver;
+    font-size: 20px;
+  }
+
+  .add-picture-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .add-picture-div img {
+      padding-right: 15px;
+  }
+
+  .gallery-icon {
+      height: 80px;
+  }

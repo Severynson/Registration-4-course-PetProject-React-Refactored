@@ -7,7 +7,7 @@ import Registration from "./Pages/Registration/Registration";
 function App() {
 
   return (
-    <div>
+    <>
       <Header />
       <Route path="/" exact>
           <Redirect to="/mainpage" />
@@ -19,7 +19,7 @@ function App() {
         <Registration />
       </Route>
       <Footer />
-    </div>
+    </>
   );
 }
 
