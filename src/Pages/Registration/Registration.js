@@ -19,7 +19,7 @@ const Registration = () => {
 
   const onSubmitSecondFormHandler = () => {
     setSubmitSecondStep(true);
-    console.log(`Adding a user: ${user}`)
+    console.log(`Adding a user: ${user}`);
     addNewUser(user);
     setTimeout(() => {
       setAccountCreated(true);
@@ -27,19 +27,23 @@ const Registration = () => {
   };
 
   async function addNewUser(userData) {
-    const response = await fetch(
-      "https://registration4courserefactored-default-rtdb.europe-west1.firebasedatabase.app/users.json",
-      {
-        method: "POST",
-        body: JSON.stringify(userData),
-        headers: {
-          "Content-type": "application/json",
-        },
-      }
-    );
+    try {
+      const response = await fetch(
+        "https://registration4courserefactored-default-rtdb.europe-west1.firebasedatabase.app/users.json",
+        {
+          method: "POST",
+          body: JSON.stringify(userData),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
 
-    const data = await response.json();
-    console.log(data);
+      const data = await response.json();
+      console.log(data);
+    } catch (err) {
+      alert(err);
+    }
   }
 
   return (
