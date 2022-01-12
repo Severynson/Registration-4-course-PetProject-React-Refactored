@@ -1,16 +1,14 @@
 import classes from "./Registration.module.css";
 import { React } from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import FirstStep from "./FirstStep/FirstStep";
 import SecondStep from "./SecondStep/SecondStep";
 import AfterRegMessage from "./AfterRegMessage/AfterRegMessage";
 import { Redirect } from "react-router-dom";
-import { userActions } from "../../store";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-const Registration = (props) => {
-    const user = useSelector(state => state.user)
-  const dispatch = useDispatch();
+const Registration = () => {
+  let user = useSelector((state) => state.user);
   const [submitFirstStep, setSubmitFirstStep] = useState(false);
   const [submitSecondStep, setSubmitSecondStep] = useState(false);
   const [accountCreated, setAccountCreated] = useState(false);
@@ -19,27 +17,9 @@ const Registration = (props) => {
     setSubmitFirstStep(true);
   };
 
-  const onSubmitSecondFormHandler = (data) => {
-    console.log(data);
-    console.log("mmmmm----------mmmmmm");
-    // userData.userPicture = data.userPicture[0];
-    // userData.name = data.name;
-    // userData.instagram = data.instagram;
-    // userData.gmail = data.gmail;
-    // userData.textarea = data.textarea;
-    // delete userData.passwordAgain;
-    // console.log(userData);
-    const { name, picture, instagram, gmail, aboutUser } = data;
-    dispatch(
-      userActions.addUserInfo({
-        name,
-        picture,
-        instagram,
-        gmail,
-        aboutUser,
-      })
-    );
+  const onSubmitSecondFormHandler = () => {
     setSubmitSecondStep(true);
+    console.log(`Adding a user: ${user}`)
     addNewUser(user);
     setTimeout(() => {
       setAccountCreated(true);
@@ -60,7 +40,6 @@ const Registration = (props) => {
 
     const data = await response.json();
     console.log(data);
-    // setTimeout(() => registrationPageChangeHandler(), 5000);
   }
 
   return (

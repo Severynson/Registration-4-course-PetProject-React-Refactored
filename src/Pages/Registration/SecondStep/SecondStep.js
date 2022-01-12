@@ -3,11 +3,30 @@ import {React} from 'react';
 import { useForm } from 'react-hook-form';
 import galleryIcon from "../../../Pictures/gallery-icon.png";
 import Button from '../../../UI/Button';
+import { useDispatch } from 'react-redux';
+import { userActions } from '../../../store/index';
 
 const SecondStep = (props) => {
+    const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
+
+    const onSubmitSecondFormHandler = (data) => {
+        const { name, picture, instagram, gmail, aboutUser } = data;
+
+        dispatch(
+          userActions.addUserInfo({
+            name,
+            picture: null, // Because firebase realtime database don't accept images.
+            instagram,
+            gmail,
+            aboutUser,
+          })
+        );
+        props.onSubmitSecondFormHandler()
+    }
+
     return (
-        <form onSubmit={handleSubmit(props.onSubmitSecondFormHandler)} className={classes["second-form"]}>
+        <form onSubmit={handleSubmit(onSubmitSecondFormHandler)} className={classes["second-form"]}>
         <div className={classes["add-picture-div"]}>
           <img src={galleryIcon} className={classes["gallery-icon"]} alt="gallery" />
             <label>Avatar-picture:</label>
