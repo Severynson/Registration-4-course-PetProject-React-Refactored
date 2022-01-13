@@ -3,25 +3,27 @@ import {React} from 'react';
 import { useForm } from 'react-hook-form';
 import galleryIcon from "../../../Pictures/gallery-icon.png";
 import Button from '../../../UI/Button';
-import { useDispatch } from 'react-redux';
-import { userActions } from '../../../store/index';
+import { useDispatch, useSelector } from 'react-redux';
+import { sendNewUser } from '../../../store/slices/userSlice';
 
 const SecondStep = (props) => {
+    const user = useSelector((state) => state.user); 
     const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
 
     const onSubmitSecondFormHandler = (data) => {
         const { name, picture, instagram, gmail, aboutUser } = data;
-
         dispatch(
-          userActions.addUserInfo({
-            name,
-            picture: null, // Because firebase realtime database don't accept images.
-            instagram,
-            gmail,
-            aboutUser,
-            status: "NotAccepted",
-          })
+          sendNewUser({
+              username: user.username,
+              password: user.password,
+              name,
+              picture: null, // Because firebase realtime database don't accept images.
+              instagram,
+              gmail,
+              aboutUser,
+              status: "NotAccepted",
+            })
         );
         props.onSubmitSecondFormHandler()
     }

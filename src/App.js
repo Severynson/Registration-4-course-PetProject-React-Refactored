@@ -5,7 +5,7 @@ import MainPage from "./Pages/MainPage/MainPage";
 import Registration from "./Pages/Registration/Registration";
 import LogIn from "./Pages/LogIn/LogIn";
 import { useDispatch } from "react-redux";
-import { accountsActions } from "./store";
+import { accountsActions } from "./store/slices/accountsSlice";
 import AccountCabinet from "./Pages/AccountCabinet/AccountCabinet";
 
 function App() {

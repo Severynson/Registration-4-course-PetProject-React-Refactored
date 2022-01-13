@@ -1,7 +1,7 @@
 import classes from "./FirstStep.module.css";
 import Button from "../../../UI/Button";
 import { useEffect, useState } from "react";
-import { userActions } from "../../../store/index";
+import { userActions } from "../../../store/slices/userSlice";
 import { useDispatch } from "react-redux";
 
 const FirstStep = (props) => {
@@ -76,7 +76,6 @@ const FirstStep = (props) => {
       setFormConfirmedEmpty(true);
       return;
     }
-    console.log("Account was created!");
     props.onSubmitFirstFormHandler();
     dispatch(userActions.addUser({
       username,

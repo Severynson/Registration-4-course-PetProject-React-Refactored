@@ -45,4 +45,52 @@ const userSlice = createSlice({
   },
 });
 
+export const sendNewUser = (user) => {
+
+  return (dispatch) => {
+    console.log(user);
+
+    async function addNewUser(userData) {
+      try {
+        const response = await fetch(
+          "https://registration4courserefactored-default-rtdb.europe-west1.firebasedatabase.app/users.json",
+          {
+            method: "POST",
+            body: JSON.stringify(userData),
+            headers: {
+              "Content-type": "application/json",
+            },
+          }
+        );
+
+        const data = await response.json();
+        console.log(data);
+      } catch (err) {
+        alert(err);
+      }
+    }
+    addNewUser({
+      username: user.username,
+      password: user.password,
+      status: user.status,
+      name: user.name,
+      aboutUser: user.aboutUser,
+      gamil: user.gmail,
+      instagram: user.instagram,
+    });
+
+    dispatch(
+      userActions.addUserInfo({
+        name: user.name,
+        picture: null, // Because firebase realtime database don't accept images.
+        instagram: user.instagram,
+        gmail: user.gmail,
+        aboutUser: user.aboutUser,
+        status: "NotAccepted",
+      })
+    );
+  };
+};
+
+export const userActions = userSlice.actions;
 export default userSlice;

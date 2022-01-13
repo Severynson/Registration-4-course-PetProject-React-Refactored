@@ -2,7 +2,7 @@ import classes from "./LogIn.module.css";
 import Button from "../../UI/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef, useState } from "react";
-import { userActions } from "../../store/index";
+import { userActions } from "../../store/slices/userSlice";
 import { Redirect } from "react-router-dom";
 
 const LogIn = (props) => {

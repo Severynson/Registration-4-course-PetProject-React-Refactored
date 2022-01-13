@@ -16,4 +16,6 @@ const accountsSlice = createSlice({
   },
 });
 
+
+export const accountsActions = accountsSlice.actions;
 export default accountsSlice;
