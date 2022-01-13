@@ -12,27 +12,36 @@ const initialState = {
 };
 
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers: {
-      addUser(state, action) {
-          state.username = action.payload.username;
-          state.password = action.payload.password;
-      },
-      addUserInfo(state, action) {
-          state.name = action.payload.name;
-          state.picture = action.payload.picture;
-          state.instagram = action.payload.instagram;
-          state.gmail = action.payload.gmail;
-          state.aboutUser = action.payload.aboutUser;
-          state.status = action.payload.status;
-      },
-      logout(state) {
-          state = initialState;
-      },
-      clearData(state) {
-          state= initialState;
-      }
+    addUser(state, action) {
+      state.username = action.payload.username;
+      state.password = action.payload.password;
+    },
+    logIn(state, action) {
+      state.username = action.payload.username;
+      state.password = action.payload.password;
+      state.name = action.payload.name;
+      state.instagram = action.payload.instagram;
+      state.gmail = action.payload.gmail;
+      state.aboutUser = action.payload.aboutUser;
+      state.status = action.payload.status;
+    },
+    addUserInfo(state, action) {
+      state.name = action.payload.name;
+      state.picture = action.payload.picture;
+      state.instagram = action.payload.instagram;
+      state.gmail = action.payload.gmail;
+      state.aboutUser = action.payload.aboutUser;
+      state.status = action.payload.status;
+    },
+    logout(state) {
+      state = initialState;
+    },
+    clearData(state) {
+      state = initialState;
+    },
   },
 });
 

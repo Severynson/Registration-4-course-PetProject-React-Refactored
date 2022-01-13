@@ -8,9 +8,11 @@ import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "../../store/index";
 
+const getUser = (state) => state.user;
+
 const Registration = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  const user = useSelector(getUser());
   const [submitFirstStep, setSubmitFirstStep] = useState(false);
   const [submitSecondStep, setSubmitSecondStep] = useState(false);
   const [accountCreated, setAccountCreated] = useState(false);
@@ -22,7 +24,10 @@ const Registration = () => {
   const onSubmitSecondFormHandler = () => {
     setSubmitSecondStep(true);
     console.log(`Adding a user: ${user}`);
+    console.log(user);
+    
     addNewUser(user);
+    console.log(user);
     dispatch(userActions.clearData());
     setTimeout(() => {
       setAccountCreated(true);

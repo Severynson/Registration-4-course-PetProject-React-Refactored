@@ -6,6 +6,7 @@ import Registration from "./Pages/Registration/Registration";
 import LogIn from "./Pages/LogIn/LogIn";
 import { useDispatch } from "react-redux";
 import { accountsActions } from "./store";
+import AccountCabinet from "./Pages/AccountCabinet/AccountCabinet";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,9 @@ function App() {
       </Route>
       <Route path="/logIn">
         <LogIn />
+      </Route>
+      <Route path="/account-cabinet">
+        <AccountCabinet />
       </Route>
       <Footer />
     </>

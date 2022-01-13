@@ -1,0 +1,14 @@
+.container {
+    width: 600px;
+    margin: 0 auto;
+    border-radius: 30px;
+    background-color: grey;
+    margin-top: 10%;
+}
+
+.container h3 {
+    text-align: center;
+    color: #fff;
+    font-weight: 900;
+    text-rendering: optimizeSpeed;
+}
