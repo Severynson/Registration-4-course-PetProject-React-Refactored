@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRef, useState } from "react";
 import { userActions } from "../../store/slices/userSlice";
 import { Redirect } from "react-router-dom";
+import Link from "../../UI/Link";
 
 const LogIn = (props) => {
   const users = useSelector((state) => state.accounts);
@@ -51,10 +52,11 @@ const LogIn = (props) => {
       <input ref={username} />
       <label>Password:</label>
       <input ref={password} />
-      <Button text="Create account" />
+      <Button text="Log In" />
+       <Link text="Admin account (no logIn)" link="/admin" />
       {formConfirmedEmpty && (
         <p className={classes["error-text"]}>
-          Form can't be submited empty or with mistakes!
+          Form can't be submited empty!
         </p>
       )}
     </form>

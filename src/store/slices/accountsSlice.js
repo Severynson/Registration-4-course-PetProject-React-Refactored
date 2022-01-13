@@ -13,6 +13,9 @@ const accountsSlice = createSlice({
         state.push(action.payload[key]);
       }
     },
+    updateUsers(state, action) {
+      state = action.payload;
+    },
   },
 });
 
