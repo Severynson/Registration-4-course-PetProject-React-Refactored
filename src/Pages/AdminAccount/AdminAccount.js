@@ -34,38 +34,73 @@ const AdminAccount = () => {
       if (user.username !== component) {
         newUsersList.push(user);
       } else {
-          console.log(user)
-          const {username, password, name, aboutUser, key, gmail, instagram} = user;
+        console.log(user);
+        const { username, password, name, aboutUser, key, gmail, instagram } =
+          user;
         acceptedUser = {
-            username,
-            password,
-            status: "Accepted",
-            name,
-            aboutUser,
-            key,
-            gmail,
-            instagram,
+          username,
+          password,
+          status: "Accepted",
+          name,
+          aboutUser,
+          key,
+          gmail,
+          instagram,
         };
       }
     });
-
+    dispatch(accountsActions.updateUsers(newUsersList));
     updateUserStatusOnServer(acceptedUser, acceptedUser.key);
     setUsers(newUsersList);
-    // dispatch(accountsActions.updateUsers(newUsersList));
+  };
+
+  const DenieUser = (component) => {
+    let newUsersList = [];
+    users.forEach((user, i) => {
+      if (user.username !== component) {
+        newUsersList.push(user);
+      } else {
+        console.log(user);
+        const { username, password, name, aboutUser, key, gmail, instagram } =
+          user;
+        acceptedUser = {
+          username,
+          password,
+          status: "Denied",
+          name,
+          aboutUser,
+          key,
+          gmail,
+          instagram,
+        };
+      }
+    });
+    dispatch(accountsActions.updateUsers(newUsersList));
+    updateUserStatusOnServer(acceptedUser, acceptedUser.key);
+    setUsers(newUsersList);
   };
 
   const updateUserStatusOnServer = async (userToUpdate, userToUpdateKey) => {
-      console.log(userToUpdate, userToUpdateKey);
+    console.log(userToUpdate, userToUpdateKey);
+    let users = {};
+    const newUsersList = accounts.map((o) => {
+      users[o.key] = o;
+    });
+
+    console.log(users);
+
+    users[userToUpdateKey] = userToUpdate;
+    console.log(users);
 
     try {
       const response = await fetch(
         `https://registration4courserefactored-default-rtdb.europe-west1.firebasedatabase.app/users.json`,
         {
           method: "PUT",
-          body: JSON.stringify({userToUpdateKey: {userToUpdate}}),
+          body: JSON.stringify(users),
+          //   body: JSON.stringify({userToUpdateKey: {userToUpdate}}),
         }
       );
-
     } catch (err) {
       alert(err);
     }
@@ -89,6 +124,10 @@ const AdminAccount = () => {
               >
                 Accept
               </button>
+              <button
+                className={styles["button"]}
+                onClick={() => DenieUser(curUser.username)}
+              >Denie</button>
             </div>
           );
         })}

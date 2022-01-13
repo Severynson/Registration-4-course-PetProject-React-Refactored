@@ -29,7 +29,7 @@ const AccountCabinet = () => {
 
   return (
     <div className={classes.container}>
-      {svg}
+      <div>{svg}</div>
       <h3>{message}</h3>
     </div>
   );

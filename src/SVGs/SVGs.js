@@ -1,8 +1,8 @@
 export const acceptSvg = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-5 w-5"
-    style={{ color: "#74b816", height: "100px" }}
+    className="accepted"
+    style={{ color: "#74b816", background: "#fff" }}
     viewBox="0 0 20 20"
     fill="currentColor"
   >
@@ -51,6 +51,7 @@ export const deniedSvg = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className="h-6 w-6"
+    style={{ color: "#f03e3e", background: "#fff" }}
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"

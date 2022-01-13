@@ -6,9 +6,7 @@ const AfterRegMessage = (props) => {
   return (
     <div className={classes["container"]}>
       <div className={classes["svg-and-p"]}>
-        <span className={classes["svg-done-icon"]}>
           <>{acceptSvg}</>
-        </span>
         <p>Account created successfully!</p>
       </div>
       <div className={classes["description"]}>
