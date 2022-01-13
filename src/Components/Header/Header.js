@@ -1,7 +1,7 @@
 import classes from "./Header.module.css";
 import incubatorImg from "../../Pictures/incubator-600x450.jpg";
 import { useEffect, useState } from "react";
-import { manPng, hulkPng } from "../../SVGs";
+import { manPng, hulkPng } from "../../SVGs/SVGs";
 
 const Header = () => {
   const [animation, setAnimation] = useState(manPng);

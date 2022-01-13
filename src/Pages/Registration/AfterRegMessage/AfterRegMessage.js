@@ -1,5 +1,5 @@
 import classes from "./AfterRegMessage.module.css";
-import { acceptSvg } from "../../../SVGs";
+import { acceptSvg } from "../../../SVGs/SVGs";
 
 const AfterRegMessage = (props) => {
 

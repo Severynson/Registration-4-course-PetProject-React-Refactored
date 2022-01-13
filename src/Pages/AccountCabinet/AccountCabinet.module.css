@@ -4,6 +4,9 @@
     border-radius: 30px;
     background-color: grey;
     margin-top: 10%;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
 }
 
 .container h3 {
@@ -11,4 +14,12 @@
     color: #fff;
     font-weight: 900;
     text-rendering: optimizeSpeed;
+    font-size: 20px;
+}
+
+.container svg {
+    height: 60px;
+    width: 60px;
+    color: #fff3bf;
+    background-color: darkblue;
 }
