@@ -8,6 +8,7 @@ const initialState = {
   instagram: null,
   gmail: null,
   textarea: null,
+  status: null,
 };
 
 const userSlice = createSlice({
@@ -24,6 +25,7 @@ const userSlice = createSlice({
           state.instagram = action.payload.instagram;
           state.gmail = action.payload.gmail;
           state.aboutUser = action.payload.aboutUser;
+          state.status = action.payload.status;
       },
       logout(state) {
           state = initialState;

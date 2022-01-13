@@ -20,6 +20,7 @@ const SecondStep = (props) => {
             instagram,
             gmail,
             aboutUser,
+            status: "NotAccepted",
           })
         );
         props.onSubmitSecondFormHandler()

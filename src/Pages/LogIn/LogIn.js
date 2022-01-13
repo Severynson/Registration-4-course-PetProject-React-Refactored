@@ -1,30 +1,34 @@
 import classes from "./LogIn.module.css";
 import Button from "../../UI/Button";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useRef, useState } from "react";
+import { accountsActions } from "../../store";
 
 
 const LogIn = (props) => {
+    const users = useSelector(state => state.accounts);
+    const dispatch = useDispatch();
     const username = useRef();
     const password = useRef();
     const isEmpty = (val) => val.current.value.trim() === "";
     const [formConfirmedEmpty, setFormConfirmedEmpty] = useState(false);
 
-    const fetchingAllUsers = async() => {
-        const res = await fetch("https://registration4courserefactored-default-rtdb.europe-west1.firebasedatabase.app/users.json")
-        const data = await res.json();
-        
-    };
-
 
   const onSubmitHandler = (e) => {
-      console.log('Alive?')
-      console.log(isEmpty(username));
     e.preventDefault();
     if (!isEmpty(username) || !isEmpty(password)) {
-        console.log("Alive!")
-        fetchingAllUsers();
-    };
+        // console.log(users);
+        const actualUser = users.find((user) => {
+            // console.log(user.username);
+            // console.log(username);
+            // console.log(user.username === username);
+            // console.log(user.password === password);
+            if(user.username === username.current.value && user.password === password.current.value) return true;
+        })
+        console.log(actualUser);
+    } else {
+        setFormConfirmedEmpty(true);
+    }
   };
 
   return (
