@@ -12,17 +12,17 @@ import AdminAccount from "./Pages/AdminAccount/AdminAccount";
 function App() {
   const dispatch = useDispatch();
 
-  (async () => {
-    try {
-      const res = await fetch(
-        "https://registration4courserefactored-default-rtdb.europe-west1.firebasedatabase.app/users.json"
-      );
-      const data = await res.json();
-      dispatch(accountsActions.addUsers(data));
-    } catch (err) {
-      alert(err);
-    }
-  })();
+  // (async () => {
+  //   try {
+  //     const res = await fetch(
+  //       "https://registration4courserefactored-default-rtdb.europe-west1.firebasedatabase.app/users.json"
+  //     );
+  //     const data = await res.json();
+  //     dispatch(accountsActions.addUsers(data));
+  //   } catch (err) {
+  //     alert(err);
+  //   }
+  // })();
 
   return (
     <>
